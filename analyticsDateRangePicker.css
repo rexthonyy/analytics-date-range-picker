@@ -1,0 +1,71 @@
+#ADRP_AnalyticsDateRangePickerContainer{
+	position: relative;
+}
+
+#ADRP_DropdownClickHandler{
+	cursor: pointer;
+}
+
+#ADRP_DisplayTextContainer{
+	position: relative;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 0px 16px;
+}
+
+#ADRP_DropdownIcon{
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1em;
+	margin-right: 8px;
+}
+
+#ADRP_DisplayText{
+	font-size: 1.1em;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+#ADRP_DateRangePicker{
+	position: absolute;
+	bottom: 0;
+}
+
+.ADRP_DateInput{
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 0;
+	padding: 0;
+}
+
+#ADRP_DropdownContainer{
+	position: relative;
+}
+
+#ADRP_DropdownMenuContainer{
+	position: absolute;
+	overflow: auto;
+	z-index: 1;
+	top: 0;
+	background-color: white;
+	display: block;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.ADRP_MenuItem{
+	padding: 8px 16px;
+	font-size: 1.1em;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.ADRP_MenuItem:hover, .ADRP_MenuItemSelected{
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.1);
+}
