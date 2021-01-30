@@ -2,8 +2,10 @@
 
 <html>
 <head>
-	<link rel="stylesheet" href="datepicker.min.css">
-	<script type="text/javascript" src="datepicker-full.js"></script>
+	<!-- Standalone -->
+	<link href="datepicker.min.css" rel="stylesheet" />
+	<script src="datepicker-full.min.js"></script>
+
 	<link rel="stylesheet" href="analyticsDateRangePicker.css">
 	<script type="text/javascript" src="analyticsDateRangePicker.js"></script>
 
@@ -18,13 +20,6 @@
 	</style>
 </head>
 <body>
-	<!-- <div id="analyticsDateRangePicker" style="margin: 200px auto; width: 250px; height: 40px; border: 1px solid gray; cursor: pointer; position: relative; text-align: center;">
-		<span id="displayText" style="line-height: 40px; font-size: 1.3em;">one</span>
-		<div id="dateRangePicker" style="position: absolute; bottom: 0px;">
-			<input style="position: absolute; width: 0px; height: 0px; padding: 0; border: 0;" id="startDateInput" type="text" /><input style="position: absolute; width: 0px; height: 0px;  padding: 0; border: 0;" id="endDateInput" type="text"/>
-		</div>
-	</div> -->
-
 	<div id="myPicker"></div>
 
 	<script>
@@ -39,12 +34,12 @@
 
 			let myPicker = document.getElementById("myPicker");
 			let dateRangePicker = new AnalyticsDateRangePicker(myPicker, {
-				startDate: new Date("01/01/2021"),
+				startDate: new Date("01/08/2021"),
 				endDate: new Date("01/20/2021"),
 				menus: [
 					{
-						menuItemLabel: 'Last 7 days',
-						getDisplayText: () => {
+						menuLabel: 'Last 7 days',
+						getDisplayLabel: () => {
 							return 'Last 7 days'
 						},
 						getRange: () => {
@@ -55,25 +50,25 @@
 						}
 					},
 					{
-						menuItemLabel: 'Last 14 days',
-						getDisplayText: () => {
+						menuLabel: 'Last 14 days',
+						getDisplayLabel: () => {
 							return 'Last 14 days'
 						},
 						getRange: () => {
 							return {
-								startDate: new Date("01/01/2021"),
+								startDate: new Date("01/04/2020"),
 								endDate: new Date()
 							};//return the calculated date range object { startDate: x, endDate: y }
 						}
 					},
 					{
-						menuItemLabel: 'Last 30 days',
-						getDisplayText: () => {
+						menuLabel: 'Last 30 days',
+						getDisplayLabel: () => {
 							return 'Last 30 days'
 						},
 						getRange: () => {
 							return {
-								startDate: new Date("01/01/2021"),
+								startDate: new Date("01/05/2018"),
 								endDate: new Date()
 							};//return the calculated date range object { startDate: x, endDate: y }
 						}
@@ -81,21 +76,14 @@
 				]
 			});
 
-			dateRangePicker.onUpdate(response => {
+			//set the default selection to the predefined ranges
+			// dateRangePicker.model.selectMenuItem(0);
+			// dateRangePicker.updateView();
+			dateRangePicker.onUpdateListener = response => {
 				console.log(response.startDate);
 				console.log(response.endDate);
-			});
+			};
 		};
-
-		// class CustomDateRangePicker {
-		// 	constructor(elem){
-		// 		this.rangepicker = new DateRangePicker(elem, { });
-		// 	}
-
-		// 	setDate(startDate, endDate){
-		// 		rangepicker.setDates(startDate, endDate);
-		// 	}
-		// }
 	</script>
 </body>
 </html>
